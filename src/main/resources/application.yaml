@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/jwt_db //databaza adi
+    url: jdbc:postgresql://localhost:5432/jwtdb //databaza adi
     username: postgres
     password: p1234
 
