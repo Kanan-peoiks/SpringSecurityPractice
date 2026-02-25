@@ -1,11 +1,15 @@
 package com.example.ssp.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Table(name = "users")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
 
     @Id
@@ -14,5 +18,5 @@ public class User {
 
     private String username;
     private String password;
-
-    }
+    private String role;
+}
