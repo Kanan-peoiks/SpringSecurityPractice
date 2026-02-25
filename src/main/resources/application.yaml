@@ -1,20 +1,15 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/jwtdb //databaza adi
+    url: jdbc:postgresql://localhost:5432/jwtdb
     username: postgres
     password: p1234
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-  main:
-    allow-circular-references: true
-
-server:
-  port: 8080
+jwt:
+  secret: 4f8d2a9e7c6b1f3d5e8a2c9f7b6d4a1c
+  expiration: 86400000
