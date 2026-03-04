@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    container_name: ssp-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: p1234
+      POSTGRES_DB: jwtdb
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    container_name: ssp-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/jwtdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: p1234
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+      ##bir nov orkestr sefi roludur.
+      ##docker login
+      ##docker tag ssp-app:latest kenanshukurzade/ssp-microservice:v1.0
+      ##docker push kenanshukurzade/ssp-microservice:v1.0
